@@ -14,6 +14,13 @@ COPY requirements.txt .
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
+# Устанавливаем переменные окружения
+ENV DJANGO_SUPERUSER_USERNAME=admin
+ENV DJANGO_SUPERUSER_PASSWORD=admin
+ENV DJANGO_SUPERUSER_EMAIL=admin@example.com
+
+
+
 # Копирование остальных файлов проекта
 COPY . .
 

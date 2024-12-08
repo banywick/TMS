@@ -10,8 +10,10 @@ echo "Applying database migrations..."
 python manage.py makemigrations
 python manage.py migrate
 
-echo "Creating superuser..."
-python manage.py createsuperuser --noinput --username admin --email admin@example.com --password admin
+echo "Create superuser..."
+python manage.py createsuperuser --noinput
+
+
 
 echo "Starting Django server..."
 python manage.py runserver 0.0.0.0:8000
