@@ -77,9 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/sefrom config.env_config import env_configttings/#databases
 
 DATABASES = {
     "default": {
