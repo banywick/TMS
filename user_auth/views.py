@@ -9,7 +9,7 @@ from .forms import SignUpForm
 class SignUpView(FormView):
     template_name = 'user_auth/signup.html'
     form_class = SignUpForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('main')
 
     def form_valid(self, form):
         form.save()
