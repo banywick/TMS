@@ -2,17 +2,21 @@
 {% load static %}
 <html>
 <head>
-    <title>Авторизация</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_auth/style.css' %}">
 </head>
 <body>
     <div class="container">
-        <h2>Sign Up</h2>
+        <h2>Регистрация</h2>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Sign Up</button>
+            <button type="submit">Зарегистрироваться</button>
         </form>
+        <div class="link-container">
+            <a href="{% url 'user_auth:password_reset' %}">Забыли пароль?</a>    
+            <a href="{% url 'user_auth:login' %}">Войти</a>    
+        </div>
     </div>
 </body>
 </html>

@@ -77,9 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/sefrom config.env_config import env_configttings/#databases
 
 DATABASES = {
     "default": {
@@ -150,4 +148,3 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # Для от�
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # SERVER_EMAIL = EMAIL_HOST_USER
 # EMAIL_ADMIN = EMAIL_HOST_USER
-
