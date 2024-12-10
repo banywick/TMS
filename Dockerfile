@@ -7,19 +7,12 @@ WORKDIR /app
 
 # Установка зависимостей системы
 RUN apt-get update && apt-get install -y netcat-openbsd \
-    && apt-get clean
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Копирование requirements.txt и установка зависимостей
 COPY requirements.txt .
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
-
-# Устанавливаем переменные окружения
-ENV DJANGO_SUPERUSER_USERNAME=admin
-ENV DJANGO_SUPERUSER_PASSWORD=admin
-ENV DJANGO_SUPERUSER_EMAIL=admin@example.com
-
-
 
 # Копирование остальных файлов проекта
 COPY . .
@@ -29,5 +22,3 @@ RUN sed -i 's/\r$//' /app/docker-entrypoint.sh \
     && chmod +x /app/docker-entrypoint.sh
 
 EXPOSE 8000
-
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
