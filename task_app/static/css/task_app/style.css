@@ -76,14 +76,21 @@ button:hover {
 }
 
 
-.task-card {
+.card {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #41ced8;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
+/* .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+} */
 
 .input_data_form {
     display: none;

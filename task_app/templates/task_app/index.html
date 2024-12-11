@@ -19,9 +19,9 @@
         </div>
     </header>
     <main>
-        <div class="input_data_form">
+        <div class="input_data_form" >
             <p>Внести данные</p>
-            <form  id="inputDataForm">
+            <form  id="inputDataForm" method='post'>
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Сохранить</button>
@@ -40,6 +40,10 @@
             <h3>Высокий приоритет</h3>
             <!-- Карточки задач будут рендериться здесь через JS -->
         </div>
+        <div class="column" id="edited-tasks">
+            <h3>Отредактированные задачи</h3>
+            <!-- Карточки задач будут рендериться здесь через JS -->
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Task Manager.</p>
@@ -47,5 +51,6 @@
     <script src="{% static 'js/popup.js'%}"></script>
     <script src="{% static 'js/query.js'%}"></script>
     <script src="{% static 'js/fetch.js'%}"></script>
+    <script src="{% static 'js/get_cart.js'%}"></script>
 </body>
 </html>

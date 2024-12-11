@@ -6,7 +6,6 @@ document.getElementById('inputDataForm').addEventListener('submit', function(eve
     var data = {};
     formData.forEach(function(value, key) {
         data[key] = value;
-        console.log(data)
     });
 
     // Извлекаем CSRF токен из скрытого поля формы
@@ -24,11 +23,13 @@ document.getElementById('inputDataForm').addEventListener('submit', function(eve
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        // Здесь можно добавить логику для обработки успешного ответа
+        // Сбрасываем форму после успешной отправки
+        document.getElementById('inputDataForm').reset();
+        document.querySelector('.input_data_form').style.display = 'none';
+        document.querySelector('.overlay').style.display = 'none';
     })
     .catch((error) => {
         console.error('Error:', error);
         // Здесь можно добавить логику для обработки ошибок
     });
 });
-
