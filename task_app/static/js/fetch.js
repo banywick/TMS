@@ -27,6 +27,7 @@ document.getElementById('inputDataForm').addEventListener('submit', function(eve
         document.getElementById('inputDataForm').reset();
         document.querySelector('.input_data_form').style.display = 'none';
         document.querySelector('.overlay').style.display = 'none';
+        window.location.reload();
     })
     .catch((error) => {
         console.error('Error:', error);

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
-from .forms import CreateTaskForm
+from .forms import CreateTaskForm, EditTaskForm
 from .models import Task
 from .serializers import TaskSerializer
 from django.views.generic import TemplateView
@@ -26,6 +26,7 @@ class MainView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = CreateTaskForm()
+        context['edit_form'] = EditTaskForm()
         return context      
 
 

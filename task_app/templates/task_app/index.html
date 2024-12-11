@@ -27,7 +27,27 @@
                 <button type="submit">Сохранить</button>
             </form>
         </div>  
-        <div class="overlay" onclick="closePopup()"></div>
+        <div class="overlay" onclick="closePopup()"></div> 
+
+        <div class="edit_form" id="edit-form">
+            <h2>Редактировать задачу</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <label for="task-title">Название:</label>
+                <input type="text" id="task-title" name="title"><br>
+                <label for="task-description">Описание:</label>
+                <textarea id="task-description" name="description"></textarea><br>
+                <label for="task-status">Статус:</label>
+                <input type="text" id="task-status" name="status"><br>
+                <label for="task-priority">Приоритет:</label>
+                <input type="text" id="task-priority" name="priority"><br>
+                <label for="task-user">Исполнитель:</label>
+                <input type="text" id="task-user" name="user"><br>
+                <button type="button" onclick="submitEditForm()">Сохранить</button>
+                <button type="button" onclick="closePopup()">Отмена</button>
+            </form>
+        </div>
+        
         <div class="column" id="low-priority">
             <h3>Низкий приоритет</h3>
             <!-- Карточки задач будут рендериться здесь через JS -->
@@ -40,8 +60,9 @@
             <h3>Высокий приоритет</h3>
             <!-- Карточки задач будут рендериться здесь через JS -->
         </div>
-        <div class="column" id="edited-tasks">
-            <h3>Отредактированные задачи</h3>
+        <div style="background-color: #FFD073;" class="column" id="edited-tasks">
+
+            <h3>Задачи в работе</h3>
             <!-- Карточки задач будут рендериться здесь через JS -->
         </div>
     </main>
@@ -49,7 +70,6 @@
         <p>&copy; 2024 Task Manager.</p>
     </footer>
     <script src="{% static 'js/popup.js'%}"></script>
-    <script src="{% static 'js/query.js'%}"></script>
     <script src="{% static 'js/fetch.js'%}"></script>
     <script src="{% static 'js/get_cart.js'%}"></script>
 </body>

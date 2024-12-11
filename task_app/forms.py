@@ -19,7 +19,7 @@ PRIORITY_CHOICES = [
     ('высокий', 'Высокий'),
 ]
 
-class CreateTaskForm(forms.Form):
+class BaseTaskForm(forms.Form):
     title = forms.CharField(max_length=255, label='Название')
     description = forms.CharField(widget=forms.Textarea, label='Описание')
     status = forms.ChoiceField(choices=STATUS_CHOICES, initial='new', label='Статус')
@@ -28,3 +28,8 @@ class CreateTaskForm(forms.Form):
 
 
 
+class CreateTaskForm(BaseTaskForm):
+    pass
+
+class EditTaskForm(BaseTaskForm):
+    pass
