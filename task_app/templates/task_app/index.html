@@ -15,13 +15,13 @@
             <div  onclick="openPopup('input_data_form')">
                 <button class='task_btn'>Создать задачу</button>
             </div>
-            <button>Войти</button>
+            <a class='login_button' href="{% url 'user_auth:login' %}">Войти</a>
         </div>
     </header>
     <main>
         <div class="input_data_form">
             <p>Внести данные</p>
-            <form  id="inputDataForm" method="post">
+            <form  id="inputDataForm">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Сохранить</button>
@@ -46,5 +46,6 @@
     </footer>
     <script src="{% static 'js/popup.js'%}"></script>
     <script src="{% static 'js/query.js'%}"></script>
+    <script src="{% static 'js/fetch.js'%}"></script>
 </body>
 </html>

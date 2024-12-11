@@ -33,7 +33,7 @@ form input::placeholder, form select::placeholder {
 }
 
 form button {
-    background-color: #007BFF;
+    background-color: #1fbcc7;
     color: #fff;
     padding: 10px;
     border: none;
@@ -43,5 +43,5 @@ form button {
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #8900b3;
 }
