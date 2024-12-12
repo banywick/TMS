@@ -149,3 +149,5 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # Для от�
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # SERVER_EMAIL = EMAIL_HOST_USER
 # EMAIL_ADMIN = EMAIL_HOST_USER
+
+# LOGOUT_REDIRECT_URL = 'user_auth:login'

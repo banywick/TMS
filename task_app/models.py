@@ -4,19 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Task(models.Model):
-    # STATUS_CHOICES = [
-    #     ('новая', 'Новая'),
-    #     ('в процессе', 'В процессе'),
-    #     ('завершена', 'Завершена'),
-    # ]
-
-    # PRIORITY_CHOICES = [
-    #     ('низкий', 'Низкий'),
-    #     ('средний', 'Средний'),
-    #     ('высокий', 'Высокий'),
-    # ]
-
-
     title = models.CharField(max_length=255, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new',  verbose_name='Статус')

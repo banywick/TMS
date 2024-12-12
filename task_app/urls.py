@@ -7,5 +7,5 @@ router.register(r'tasks', TaskViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('', MainView.as_view(), name='main')
+    path('', MainView.as_view(), name='main'),
 ]

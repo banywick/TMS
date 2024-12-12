@@ -15,7 +15,18 @@
             <div  onclick="openPopup('input_data_form')">
                 <button class='task_btn'>Создать задачу</button>
             </div>
-            <a class='login_button' href="{% url 'user_auth:login' %}">Войти</a>
+            {% comment %} <a class='login_button' href="{% url 'user_auth:login' %}">Войти</a>
+            <a class='login_button' href="{% url 'user_auth:logout' %}">Войти</a>
+ {% endcomment %}
+
+            <div class="header_user_account">
+                {% if request.user.is_authenticated %}
+                <h3>{{ user.username }}</h3>
+                <a class="log_text_link"  href="{% url 'user_auth:logout' %}">Выйти</a>
+                {% else%}
+                <a class="log_text_link" href="{% url 'user_auth:login' %}">Войти</a>
+                {% endif %}
+            </div>
         </div>
     </header>
     <main>
@@ -42,11 +53,12 @@
                 <label for="task-priority">Приоритет:</label>
                 <input type="text" id="task-priority" name="priority"><br>
                 <label for="task-user">Исполнитель:</label>
-                <input type="text" id="task-user" name="user"><br>
+                <select id="task-user" name="user"></select><br>
                 <button type="button" onclick="submitEditForm()">Сохранить</button>
                 <button type="button" onclick="closePopup()">Отмена</button>
             </form>
         </div>
+        
         
         <div class="column" id="low-priority">
             <h3>Низкий приоритет</h3>

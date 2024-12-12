@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p><strong>Приоритет:</strong> ${task.priority}</p>
                         <p><strong>Исполнитель:</strong> ${task.user}</p>
                         <p><strong>Создана:</strong> ${new Date(task.date_create).toLocaleString()}</p>
-                        <div  onclick="openPopup('edit_form')">
+                        <div  onclick="openPopup('edit_form', ${task.id})">
                             <p class='task_btn'>Редактировать</p>
                         </div>
                         <p class="delete-button" onclick="deleteTask(${task.id})">Удалить</p>`;
@@ -71,7 +71,6 @@ function deleteTask(taskId) {
     })
     .then(response => {
         if (response.ok) {
-            // Обновите отображение задач
             fetch('/api/tasks/')
                 .then(response => response.json())
                 .then(data => {

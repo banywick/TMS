@@ -108,3 +108,8 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+
+.log_text_link {
+    color:white;
+    text-decoration: none;
+}

@@ -1,12 +1,13 @@
-from urllib import request
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from .forms import CreateTaskForm, EditTaskForm
 from .models import Task
-from .serializers import TaskSerializer
+from .serializers import TaskSerializer, UserSerializer
 from django.views.generic import TemplateView
+from rest_framework.response import Response
+from rest_framework.decorators import action
+from django.contrib.auth.models import User
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
@@ -19,6 +20,18 @@ class TaskViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
+    @action(detail=True, methods=['get'])
+    def get_task_with_users(self, request, pk=None):
+        task = self.get_object()
+        users = User.objects.all()
+        task_serializer = TaskSerializer(task)
+        users_serializer = UserSerializer(users, many=True)
+
+        return Response({
+            'task': task_serializer.data,
+            'users': users_serializer.data
+        })
+
 
 class MainView(TemplateView):
     template_name = 'task_app/index.html'  
@@ -28,5 +41,7 @@ class MainView(TemplateView):
         context['form'] = CreateTaskForm()
         context['edit_form'] = EditTaskForm()
         return context      
+    
+
 
 
