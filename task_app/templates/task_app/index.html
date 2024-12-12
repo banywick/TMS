@@ -1,11 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task Manager</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/task_app/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/task_app/data_form.css' %}">
 </head>
 <body>
-    TASKS
+    <header>
+        <div class="header-content">
+            <h1>Task Manager</h1>
+            <div  onclick="openPopup('input_data_form')">
+                <button class='create_task_button'>Создать задачу</button>
+            </div>
+
+
+            <div class="header_user_account">
+                {% if request.user.is_authenticated %}
+                <h3>{{ user.username }}</h3>
+                <a class="log_text_link"  href="{% url 'user_auth:logout' %}">Выйти</a>
+                {% else%}
+                <a class="log_text_link" href="{% url 'user_auth:login' %}">Войти</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="input_data_form" >
+            <p>Внести данные</p>
+            <form  id="inputDataForm" method='post'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="user_id" id="id_user_id" value="{{ form.user.value }}">
+                <script>
+                    document.getElementById('id_user').addEventListener('change', function() {
+                        var userSelect = document.getElementById('id_user');
+                        var user_id = userSelect.options[userSelect.selectedIndex].value;
+                        document.getElementById('id_user_id').value = user_id;
+                    });
+                    </script>
+                <button id='save_data_button' type="submit">Сохранить</button>
+            </form>
+        </div>  
+        <div class="overlay" onclick="closePopup()"></div> 
+
+        <div class="edit_form" id="edit-form">
+            <h2>Редактировать задачу</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <label for="task-title">Название:</label>
+                <input type="text" id="task-title" name="title"><br>
+                <label for="task-description">Описание:</label>
+                <textarea id="task-description" name="description"></textarea><br>
+                <label for="task-status">Статус:</label>
+                <select id="task-status" name="status"></select><br>
+                <label for="task-priority">Приоритет:</label>
+                <select id="task-priority" name="priority"></select><br>
+                <label for="task-user">Исполнитель:</label>
+                <select id="task-user" name="user"></select><br>
+                <button type="button" onclick="submitEditForm()">Сохранить</button>
+                <button type="button" onclick="closePopup()">Отмена</button>
+            </form>
+        </div>
+        
+        
+        <div class="column" id="low-priority">
+            <h3>Низкий приоритет</h3>
+            <!-- Карточки задач будут рендериться здесь через JS -->
+        </div>
+        <div class="column" id="medium-priority">
+            <h3>Средний приоритет</h3>
+            <!-- Карточки задач будут рендериться здесь через JS -->
+        </div>
+        <div class="column" id="high-priority">
+            <h3>Высокий приоритет</h3>
+            <!-- Карточки задач будут рендериться здесь через JS -->
+        </div>
+        <div class="column" id="edited-tasks">
+
+            <h3>Задачи в работе</h3>
+            <!-- Карточки задач будут рендериться здесь через JS -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Task Manager.</p>
+    </footer>
+    <script src="{% static 'js/popup.js'%}"></script>
+    <script src="{% static 'js/fetch.js'%}"></script>
+    <script src="{% static 'js/get_cart.js'%}"></script>
 </body>
 </html>

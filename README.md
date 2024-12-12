@@ -1,26 +1,36 @@
-# Stuttgart Center Task
+# Система управления задачами (Task Management System)
 
-## Quickstart
+## Быстрый старт
 
-1. To set up the project please create new directory **StuttgartCenterTask** on your computer and clone the git repository using the command:
+1. Чтобы настроить проект, пожалуйста, создайте на Вашем компьютере новую директорию **TMS** и клонируйте проект из git-репозитория, используя команду:
 
 ```console
-$ git clone https://github.com/igorkartel/StuttgartCenterTask.git .
+$ git clone https://github.com/banywick/TMS.git .
 ```
 
-2. Then open the project in your IDE (PyCharm or VSCode). A virtual environment for this project must be built with **poetry**.
-Find the file **pyproject.toml** with all dependencies and change the python version you are using in this line:
-**python = "^3.11"** (you can choose "3.10", "3.11" or "3.12" only; I used "3.12", so it is configured as default).
+2. Далее откройте проект в Вашем IDE (PyCharm или VSCode).
 
-3. Create in the project root your **.env** file. You can see the parameters to define in the file **env_config.py**.
+3. Добавьте в корень проекта **.env** файл, который был отправлен вместе со ссылкой на проект.
 
-4. Create poetry virtual environment and install the dependencies.
+4. Создайте виртуальное окружение **venv** и установите зависимости, используя команду:
 
-5. Then run in your IDE console the following command to initialize a container with all the services:
+```console
+$ pip install -r requirements.txt
+```
+
+5. Потом запустите в консоли Вашего IDE следующую команду, чтобы инициализировать контейнеры с приложением и базой данных:
 
 ```console
 $ docker compose up -d --build
 ```
 
-6. Now the project is ready for use.
-You can see generated docs by following links: http://localhost:8002/docs
+6. Проект готов к использованию.
+Для проверки эндпоинтов REST API перейдите по ссылке: http://localhost:8000/doc
+
+7. Для работы через UI и создания нового пользователя перейдите по ссылке: http://localhost:8000/signup
+
+8. Для доступа к администативной странице испрользуйте http://localhost:8000/admin
+login:admin
+password:admin 
+
+9. Текст письма с ссылкой для сброса пароля будет отображаться в консоли. Перейдите по ссылке и измените пароль

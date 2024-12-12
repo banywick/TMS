@@ -1,0 +1,82 @@
+.input_data_form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    margin: 10px 0;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input::placeholder, form select::placeholder {
+    color: #aaa;
+}
+
+form button {
+    background-color: #1fbcc7;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #8900b3;
+}
+
+.task-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task_btn, .delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.task_btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.task_btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.delete-button {
+    background-color: #DC3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
