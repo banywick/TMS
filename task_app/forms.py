@@ -29,7 +29,14 @@ class BaseTaskForm(forms.Form):
 
 
 class CreateTaskForm(BaseTaskForm):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(BaseTaskForm, self).__init__(*args, **kwargs)
+        if 'user' in self.data:
+            try:
+                user_id = int(self.data.get('user'))
+                self.fields['user_id'].initial = user_id
+            except (ValueError, TypeError):
+                pass
 
 class EditTaskForm(BaseTaskForm):
     pass

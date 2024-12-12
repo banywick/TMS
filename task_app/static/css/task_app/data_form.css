@@ -45,3 +45,38 @@ form button {
 form button:hover {
     background-color: #8900b3;
 }
+
+.task-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task_btn, .delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.task_btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.task_btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.delete-button {
+    background-color: #DC3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}

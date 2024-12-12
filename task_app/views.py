@@ -18,7 +18,12 @@ class TaskViewSet(viewsets.ModelViewSet):
         return self.queryset.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        user_id = self.request.data.get('user')
+        if user_id:
+            user = User.objects.get(id=user_id)
+            serializer.save(user=user)
+        else:
+            serializer.save(user=self.request.user)
 
     @action(detail=True, methods=['get'])
     def get_task_with_users(self, request, pk=None):
