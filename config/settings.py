@@ -77,9 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/sefrom config.env_config import env_configttings/#databases
 
 DATABASES = {
     "default": {
@@ -129,6 +127,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
@@ -151,3 +150,4 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # Для от�
 # SERVER_EMAIL = EMAIL_HOST_USER
 # EMAIL_ADMIN = EMAIL_HOST_USER
 
+# LOGOUT_REDIRECT_URL = 'user_auth:login'
